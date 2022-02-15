@@ -26,7 +26,8 @@ public class PagosAdministracion {
             Long id,
             String codigoInmueble,
             Integer numeroIdentificacionPersona,
-            Integer valorPagado, Integer porcentajeInteres,
+            Integer valorPagado,
+            Integer porcentajeInteres,
             Integer valorPagadoInteres,
             Boolean pagoTotal,
             LocalDateTime fechaCreacion
