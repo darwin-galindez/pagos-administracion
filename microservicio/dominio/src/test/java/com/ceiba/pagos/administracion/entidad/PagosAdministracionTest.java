@@ -26,7 +26,11 @@ public class PagosAdministracionTest {
         assertEquals(1, pagosAdministracion.getId());
         assertEquals("AQ17", pagosAdministracion.getCodigoInmueble());
         assertEquals(1324549876, pagosAdministracion.getNumeroIdentificacionPersona());
+        assertEquals(300000, pagosAdministracion.getValorPagado());
+        assertEquals(0, pagosAdministracion.getPorcentajeInteres());
+        assertEquals(0, pagosAdministracion.getValorPagadoInteres());
         assertEquals(true, pagosAdministracion.getPagoTotal());
+        assertEquals(fechaCreacion, pagosAdministracion.getFechaCreacion());
     }
 
     @Test
