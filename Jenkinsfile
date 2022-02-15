@@ -54,7 +54,7 @@ pipeline {
             sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
         } */
         sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:[pagos.administracion-darwin.galindez]',
-            sonarName:'CeibaADN-PagosAdministracion(darwin.galindez)',
+            sonarName:'CeibaADN-PagosAdministracion-darwin.galindez',
             sonarPathProperties:'./sonar-project.properties')
         }
       }
