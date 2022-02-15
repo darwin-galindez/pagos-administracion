@@ -13,7 +13,7 @@ public class DaoPagosAdministracionMysql implements DaoPagosAdministracion {
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
-    @SqlStatement(namespace = "pagos-administracion", value = "listar")
+    @SqlStatement(namespace = "pagosadministracion", value = "listar")
     private static String sqlListar;
 
     public DaoPagosAdministracionMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {

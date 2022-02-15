@@ -15,7 +15,7 @@ public class RepositorioPagosAdministracionMysql implements RepositorioPagosAdmi
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
 
-    @SqlStatement(namespace="pagos-administracion", value="crear")
+    @SqlStatement(namespace="pagosadministracion", value="crear")
     private static String sqlCrear;
 
     @Override

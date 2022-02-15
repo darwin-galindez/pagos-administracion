@@ -2,7 +2,9 @@ package com.ceiba.pagos.administracion.comando.fabrica;
 
 import com.ceiba.pagos.administracion.comando.ComandoPagosAdministracion;
 import com.ceiba.pagos.administracion.modelo.entidad.PagosAdministracion;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FabricaPagosAdministracion {
 
     public PagosAdministracion crear(ComandoPagosAdministracion comandoPagosAdministracion) {
