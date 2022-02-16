@@ -1,8 +1,8 @@
 package com.ceiba.pagos.administracion.controlador;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.pagos.administracion.comando.ComandoPagosAdministracion;
-import com.ceiba.pagos.administracion.servicio.testdatabuilder.ComandoPagosAdministracionTestDataBuilder;
+import com.ceiba.pagos.administracion.modelo.dto.DtoConsultarSaldoPagosAdministracion;
+import com.ceiba.pagos.administracion.servicio.testdatabuilder.ConsultarSaldoPagosAdministracionTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,14 +15,14 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(ComandoControladorPagosAdministracionTest.class)
 @ContextConfiguration(classes = ApplicationMock.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-class ComandoControladorPagosAdministracionTest {
+public class ConsultaControladorPagosAdministracionTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -31,14 +31,14 @@ class ComandoControladorPagosAdministracionTest {
     private MockMvc mocMvc;
 
     @Test
-    @DisplayName("Deberia crear un pago de administracion")
-    void deberiaCrearPagoAdministracion() throws Exception {
+    @DisplayName("Deberia consultar correctamente el saldo")
+    void deberiaConsultarCorrectamenteElSaldoInmueble() throws Exception {
 
-        ComandoPagosAdministracion comandoPagosAdministracion = new ComandoPagosAdministracionTestDataBuilder().build();
+        DtoConsultarSaldoPagosAdministracion consultarSaldoPagosAdministracion = new ConsultarSaldoPagosAdministracionTestDataBuilder().build();
 
-        mocMvc.perform(post("/pagos")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(comandoPagosAdministracion)))
-                .andExpect(status().isOk());
+        mocMvc.perform(post("/pagos/consultar-saldo")
+                        .contentType(MediaType.APPLICATION_JSON))
+                        // .content(objectMapper.writeValueAsString(consultarSaldoPagosAdministracion)))
+                        .andExpect(status().isBadRequest());
     }
 }
