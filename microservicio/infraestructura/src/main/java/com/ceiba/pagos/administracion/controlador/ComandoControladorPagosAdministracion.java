@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDateTime;
 
 @RestController
-@RequestMapping("/pagos-administracion")
+@RequestMapping("/pagos")
 @Api(tags = {"Controlador comando pagos administracion"})
 public class ComandoControladorPagosAdministracion {
 
