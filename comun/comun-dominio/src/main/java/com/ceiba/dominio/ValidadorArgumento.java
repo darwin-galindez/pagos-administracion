@@ -1,5 +1,6 @@
 package com.ceiba.dominio;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.regex.Pattern;
 import com.ceiba.dominio.excepcion.ExcepcionLongitudValor;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 public class ValidadorArgumento {
 	
@@ -91,6 +93,18 @@ public class ValidadorArgumento {
         try {
             Long.parseLong(valor);
         } catch (NumberFormatException numberFormatException) {
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+
+    public static void validarValorMinimoValorMaximo(Integer valor, Integer valorMinimo, Integer valorMaximo, String mensaje) {
+        if (valor < valorMinimo  || valor > valorMaximo) {
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+
+    public static void validarPositivo(Boolean valor, String mensaje) {
+        if (Boolean.FALSE.equals(valor)) {
             throw new ExcepcionValorInvalido(mensaje);
         }
     }

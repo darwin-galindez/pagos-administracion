@@ -2,6 +2,7 @@ package com.ceiba.pagos.administracion.servicio.testdatabuilder;
 
 import com.ceiba.pagos.administracion.modelo.entidad.PagosAdministracion;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 public class PagosAdministracionTestDataBuilder {
