@@ -1,7 +1,7 @@
 package com.ceiba.pagos.administracion.consulta;
 
 import com.ceiba.pagos.administracion.modelo.dto.DtoConsultarSaldoPagosAdministracion;
-import com.ceiba.pagos.administracion.modelo.dto.DtoTotalPagadoPagosAdministracion;
+import com.ceiba.pagos.administracion.modelo.dto.DtoSaldoPagosAdministracion;
 import com.ceiba.pagos.administracion.servicio.ServicioTotalPagadoPagosAdministracion;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +14,7 @@ public class ManejadorTotalPagadoPagosAdministracion {
         this.servicioTotalPagadoPagosAdministracion = servicioTotalPagadoPagosAdministracion;
     }
 
-    public DtoTotalPagadoPagosAdministracion ejecutar(DtoConsultarSaldoPagosAdministracion consultarSaldoPagosAdministracion) {
+    public DtoSaldoPagosAdministracion ejecutar(DtoConsultarSaldoPagosAdministracion consultarSaldoPagosAdministracion) {
         return this.servicioTotalPagadoPagosAdministracion.ejecutar(consultarSaldoPagosAdministracion);
     }
 }

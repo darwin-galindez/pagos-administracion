@@ -2,7 +2,7 @@ package com.ceiba.pagos.administracion.controlador;
 
 import com.ceiba.pagos.administracion.consulta.ManejadorTotalPagadoPagosAdministracion;
 import com.ceiba.pagos.administracion.modelo.dto.DtoConsultarSaldoPagosAdministracion;
-import com.ceiba.pagos.administracion.modelo.dto.DtoTotalPagadoPagosAdministracion;
+import com.ceiba.pagos.administracion.modelo.dto.DtoSaldoPagosAdministracion;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -28,8 +28,7 @@ public class ConsultaControladorPagosAdministracion {
 
     @PostMapping("/consultar-saldo")
     @ApiOperation("Consultar el saldo de un inmueble por codigo y mes")
-    public DtoTotalPagadoPagosAdministracion consultarSaldo(@RequestBody DtoConsultarSaldoPagosAdministracion consultarSaldoPagosAdministracion) {
-        logger.info("inicio consultar saldo");
+    public DtoSaldoPagosAdministracion consultarSaldo(@RequestBody DtoConsultarSaldoPagosAdministracion consultarSaldoPagosAdministracion) {
         return manejadorTotalPagadoPagosAdministracion.ejecutar(consultarSaldoPagosAdministracion);
     }
 }

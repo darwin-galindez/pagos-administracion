@@ -2,7 +2,6 @@ package com.ceiba.pagos.administracion.modelo.entidad;
 
 import lombok.Getter;
 
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;

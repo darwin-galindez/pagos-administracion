@@ -4,6 +4,7 @@ import com.ceiba.pagos.administracion.modelo.dto.DtoConsultarSaldoPagosAdministr
 import com.ceiba.pagos.administracion.modelo.dto.DtoTotalPagadoPagosAdministracion;
 import com.ceiba.pagos.administracion.modelo.entidad.PagosAdministracion;
 import com.ceiba.pagos.administracion.puerto.repositorio.RepositorioPagosAdministracion;
+
 import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
 
 public class ServicioCrearPagosAdministracion {
@@ -23,9 +24,16 @@ public class ServicioCrearPagosAdministracion {
 
     public void validarPagoMaximoPorMes(PagosAdministracion pagosAdministracion) {
         Integer mes = 2;
-        DtoTotalPagadoPagosAdministracion totalPagadoPagosAdministracion = this.repositorioPagosAdministracion.consultarTotalPagado(new DtoConsultarSaldoPagosAdministracion(pagosAdministracion.getCodigoInmueble(), mes));
 
-        int saldo = 300000 - totalPagadoPagosAdministracion.getTotalPagado();
+        DtoTotalPagadoPagosAdministracion totalPagadoPagosAdministracion;
+
+        try {
+            totalPagadoPagosAdministracion = this.repositorioPagosAdministracion.consultarTotalPagado(new DtoConsultarSaldoPagosAdministracion(pagosAdministracion.getCodigoInmueble(), mes));
+        } catch (Exception exception) {
+            totalPagadoPagosAdministracion = null;
+        }
+
+        int saldo = (totalPagadoPagosAdministracion == null) ? 300000 : 300000 - totalPagadoPagosAdministracion.getTotalPagado();
         boolean valorValido = pagosAdministracion.getValorPagado() <= saldo;
 
         validarPositivo(valorValido, NO_PUEDE_EXCEDER_VALOR_MAXIMO_MENSUAL + saldo);
