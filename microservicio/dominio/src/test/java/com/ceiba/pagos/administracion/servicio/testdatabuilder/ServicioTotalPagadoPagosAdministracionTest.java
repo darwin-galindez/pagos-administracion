@@ -1,6 +1,7 @@
 package com.ceiba.pagos.administracion.servicio.testdatabuilder;
 
 import com.ceiba.pagos.administracion.modelo.dto.DtoConsultarSaldoPagosAdministracion;
+import com.ceiba.pagos.administracion.modelo.dto.DtoSaldoPagosAdministracion;
 import com.ceiba.pagos.administracion.modelo.dto.DtoTotalPagadoPagosAdministracion;
 import com.ceiba.pagos.administracion.puerto.repositorio.RepositorioPagosAdministracion;
 import com.ceiba.pagos.administracion.servicio.ServicioTotalPagadoPagosAdministracion;
@@ -22,7 +23,7 @@ public class ServicioTotalPagadoPagosAdministracionTest {
         Mockito.when(repositorioPagosAdministracion.consultarTotalPagado(dataBuilder)).thenReturn(new DtoTotalPagadoPagosAdministracion("AQ18", 300000));
 
         ServicioTotalPagadoPagosAdministracion servicioTotalPagadoPagosAdministracion = new ServicioTotalPagadoPagosAdministracion(repositorioPagosAdministracion);
-        DtoTotalPagadoPagosAdministracion totalPagadoPagosAdministracion = servicioTotalPagadoPagosAdministracion.ejecutar(dataBuilder);
+        DtoSaldoPagosAdministracion totalPagadoPagosAdministracion = servicioTotalPagadoPagosAdministracion.ejecutar(dataBuilder);
 
         assertEquals("AQ18",totalPagadoPagosAdministracion.getCodigoInmueble());
     }
