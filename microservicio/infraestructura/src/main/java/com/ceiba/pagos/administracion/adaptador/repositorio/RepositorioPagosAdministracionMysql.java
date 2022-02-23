@@ -7,15 +7,12 @@ import com.ceiba.pagos.administracion.modelo.dto.DtoConsultarSaldoPagosAdministr
 import com.ceiba.pagos.administracion.modelo.dto.DtoTotalPagadoPagosAdministracion;
 import com.ceiba.pagos.administracion.modelo.entidad.PagosAdministracion;
 import com.ceiba.pagos.administracion.puerto.repositorio.RepositorioPagosAdministracion;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class RepositorioPagosAdministracionMysql implements RepositorioPagosAdministracion {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     public RepositorioPagosAdministracionMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
