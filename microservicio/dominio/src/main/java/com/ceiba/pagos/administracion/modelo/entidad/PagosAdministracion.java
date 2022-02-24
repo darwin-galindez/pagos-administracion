@@ -4,8 +4,7 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
-import static com.ceiba.dominio.ValidadorArgumento.validarValorMinimoValorMaximo;
+import static com.ceiba.dominio.ValidadorArgumento.*;
 
 @Getter
 public class PagosAdministracion {
@@ -43,7 +42,7 @@ public class PagosAdministracion {
         validarObligatorio(numeroIdentificacionPersona, SE_DEBE_INGRESAR_NUMERO_IDENTIFICACION_PERSONA);
         validarObligatorio(valorPagado, SE_DEBE_INGRESAR_VALOR_PAGADO);
         validarValorMinimoValorMaximo(valorPagado, VALOR_MINIMO, VALOR_MAXIMO, RANGO_VALOR_PAGADO_MINIMO_MAXIMO);
-        validarObligatorio(pagoTotal, SE_DEBE_INGRESAR_PAGO_TOTAL);
+        validarBooleano(pagoTotal, SE_DEBE_INGRESAR_PAGO_TOTAL);
 
         this.id = id;
         this.codigoInmueble = codigoInmueble;

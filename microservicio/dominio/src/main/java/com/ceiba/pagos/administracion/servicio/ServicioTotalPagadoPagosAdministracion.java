@@ -4,12 +4,12 @@ import com.ceiba.pagos.administracion.modelo.dto.DtoConsultarSaldoPagosAdministr
 import com.ceiba.pagos.administracion.modelo.dto.DtoSaldoPagosAdministracion;
 import com.ceiba.pagos.administracion.modelo.dto.DtoTotalPagadoPagosAdministracion;
 import com.ceiba.pagos.administracion.puerto.repositorio.RepositorioPagosAdministracion;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+
+import java.util.logging.Logger;
 
 public class ServicioTotalPagadoPagosAdministracion {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = Logger.getLogger(this.getClass().getName());
 
     private static final Integer VALOR_ADMINISTRACION = 300000;
     private final RepositorioPagosAdministracion repositorioPagosAdministracion;
@@ -28,7 +28,7 @@ public class ServicioTotalPagadoPagosAdministracion {
             totalPagado = totalPagadoPagosAdministracion.getTotalPagado();
 
         } catch (Exception exception) {
-            logger.error(exception.toString());
+            logger.warning(exception.toString());
         }
 
         int saldo = VALOR_ADMINISTRACION - totalPagado;
