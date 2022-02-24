@@ -25,7 +25,7 @@ public class RepositorioPagosAdministracionMysql implements RepositorioPagosAdmi
     @SqlStatement(namespace="pagosadministracion", value="totalpagado")
     private static String sqlTotalPagado;
 
-    @SqlStatement(namespace="pagosadministracion", value="totalpagado")
+    @SqlStatement(namespace="pagosadministracion", value="existeCodigoMes")
     private static String sqlExisteCodigoMes;
 
     @Override
@@ -49,6 +49,6 @@ public class RepositorioPagosAdministracionMysql implements RepositorioPagosAdmi
         paramSource.addValue("codigoInmueble", dtoConsultarSaldoPagosAdministracion.getCodigoInmueble());
         paramSource.addValue("mes", dtoConsultarSaldoPagosAdministracion.getMes());
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteCodigoMes, paramSource, Boolean.class);
+        return Boolean.TRUE.equals(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteCodigoMes, paramSource, Boolean.class));
     }
 }

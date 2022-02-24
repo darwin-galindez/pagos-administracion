@@ -15,7 +15,6 @@ public class PagosAdministracion {
     private static final String SE_DEBE_INGRESAR_CODIGO_INMUEBLE = "Se debe ingresar el código del inmueble";
     private static final String SE_DEBE_INGRESAR_NUMERO_IDENTIFICACION_PERSONA = "Se debe ingresar el número de identificación de la persona";
     private static final String SE_DEBE_INGRESAR_VALOR_PAGADO = "Se debe ingresar el valor a pagar";
-    private static final String SE_DEBE_INGRESAR_PAGO_TOTAL = "Se debe especificar si es un pago total o no";
     private static final String RANGO_VALOR_PAGADO_MINIMO_MAXIMO = "Debe ingresar un valor entre 50.000 y 300.000";
 
     private Long id;
@@ -42,7 +41,6 @@ public class PagosAdministracion {
         validarObligatorio(numeroIdentificacionPersona, SE_DEBE_INGRESAR_NUMERO_IDENTIFICACION_PERSONA);
         validarObligatorio(valorPagado, SE_DEBE_INGRESAR_VALOR_PAGADO);
         validarValorMinimoValorMaximo(valorPagado, VALOR_MINIMO, VALOR_MAXIMO, RANGO_VALOR_PAGADO_MINIMO_MAXIMO);
-        validarBooleano(pagoTotal, SE_DEBE_INGRESAR_PAGO_TOTAL);
 
         this.id = id;
         this.codigoInmueble = codigoInmueble;

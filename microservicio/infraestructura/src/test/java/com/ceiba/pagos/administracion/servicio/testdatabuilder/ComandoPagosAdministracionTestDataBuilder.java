@@ -17,12 +17,12 @@ public class ComandoPagosAdministracionTestDataBuilder {
 
     public ComandoPagosAdministracionTestDataBuilder() {
 
-        codigoInmueble = "QA16";
+        codigoInmueble = "AQ10";
         numeroIdentificacionPersona = 1234567890;
-        valorPagado = 300000;
+        valorPagado = 250000;
         porcentajeInteres = 0;
         valorPagadoInteres = 0;
-        pagoTotal = true;
+        pagoTotal = false;
         fechaCreacion = LocalDateTime.now();
     }
 
