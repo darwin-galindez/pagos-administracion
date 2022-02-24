@@ -68,4 +68,16 @@ public class PagosAdministracionTest {
                 },
                 ExcepcionValorObligatorio.class, "Se debe ingresar el valor a pagar");
     }
+
+    @Test
+    void deberiaFallarSinPagoTotal() {
+
+        //Arrange
+        PagosAdministracionTestDataBuilder pagosAdministracionTestDataBuilder = new PagosAdministracionTestDataBuilder().conPagoTotal(null).conId(1L);
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    pagosAdministracionTestDataBuilder.build();
+                },
+                ExcepcionValorObligatorio.class, "Se debe ingresar si es un pago total o parcial.");
+    }
 }
