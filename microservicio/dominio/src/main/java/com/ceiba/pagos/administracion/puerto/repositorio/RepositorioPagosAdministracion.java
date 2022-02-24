@@ -18,4 +18,10 @@ public interface RepositorioPagosAdministracion {
      * @return totalPagado
      */
     DtoTotalPagadoPagosAdministracion consultarTotalPagado(DtoConsultarSaldoPagosAdministracion dtoConsultarSaldoPagosAdministracion);
+
+    /**
+     * Permite validar si ya se registro un pago por el codigo inmueble y mes
+     * @return existe
+     */
+    boolean existePorCodigoMes(DtoConsultarSaldoPagosAdministracion dtoConsultarSaldoPagosAdministracion);
 }

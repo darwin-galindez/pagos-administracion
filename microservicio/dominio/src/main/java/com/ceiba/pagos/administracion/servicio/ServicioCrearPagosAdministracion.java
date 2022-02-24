@@ -5,8 +5,6 @@ import com.ceiba.pagos.administracion.modelo.dto.DtoTotalPagadoPagosAdministraci
 import com.ceiba.pagos.administracion.modelo.entidad.PagosAdministracion;
 import com.ceiba.pagos.administracion.puerto.repositorio.RepositorioPagosAdministracion;
 
-import java.time.LocalDateTime;
-
 import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
 
 public class ServicioCrearPagosAdministracion {
@@ -42,15 +40,12 @@ public class ServicioCrearPagosAdministracion {
 
     public DtoTotalPagadoPagosAdministracion consultarTotalPagado(PagosAdministracion pagosAdministracion ,Integer mes) {
 
-        DtoTotalPagadoPagosAdministracion totalPagadoPagosAdministracion;
+        DtoConsultarSaldoPagosAdministracion dtoConsultarSaldoPagosAdministracion = new DtoConsultarSaldoPagosAdministracion(pagosAdministracion.getCodigoInmueble(), mes);
 
-        try {
-            DtoConsultarSaldoPagosAdministracion dtoConsultarSaldoPagosAdministracion = new DtoConsultarSaldoPagosAdministracion(pagosAdministracion.getCodigoInmueble(), mes);
-            totalPagadoPagosAdministracion = this.repositorioPagosAdministracion.consultarTotalPagado(dtoConsultarSaldoPagosAdministracion);
-        } catch (Exception e) {
-            totalPagadoPagosAdministracion = null;
+        if (this.repositorioPagosAdministracion.existePorCodigoMes(dtoConsultarSaldoPagosAdministracion)) {
+            return this.repositorioPagosAdministracion.consultarTotalPagado(dtoConsultarSaldoPagosAdministracion);
         }
 
-        return totalPagadoPagosAdministracion;
+        return null;
     }
 }
