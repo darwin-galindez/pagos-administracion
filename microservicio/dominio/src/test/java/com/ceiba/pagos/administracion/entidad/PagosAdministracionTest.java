@@ -25,11 +25,15 @@ public class PagosAdministracionTest {
         // arrange
         LocalDateTime fechaCreacion = LocalDateTime.now();
         //act
-        PagosAdministracion pagosAdministracion = new PagosAdministracionTestDataBuilder().conFechaCreacion(fechaCreacion).conId(1L).build();
+        PagosAdministracion pagosAdministracion = new PagosAdministracionTestDataBuilder()
+                .conNumeroIdentificacionPersona(12345678)
+                .conFechaCreacion(fechaCreacion)
+                .conId(1L)
+                .build();
         //assert
         assertEquals(1, pagosAdministracion.getId());
         assertEquals("AQ17", pagosAdministracion.getCodigoInmueble());
-        assertEquals(1324549876, pagosAdministracion.getNumeroIdentificacionPersona());
+        assertEquals(12345678, pagosAdministracion.getNumeroIdentificacionPersona());
         assertEquals(300000, pagosAdministracion.getValorPagado());
         assertEquals(0, pagosAdministracion.getPorcentajeInteres());
         assertEquals(0, pagosAdministracion.getValorPagadoInteres());
