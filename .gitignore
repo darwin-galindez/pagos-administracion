@@ -28,3 +28,7 @@ bin/
 logs
 # gradle/
 
+microservicio/aplicacion/out/
+microservicio/dominio/out/
+microservicio/infraestructura/out/
+microservicio/out/
