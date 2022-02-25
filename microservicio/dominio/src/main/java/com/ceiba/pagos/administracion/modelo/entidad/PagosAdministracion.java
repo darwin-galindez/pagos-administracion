@@ -4,7 +4,8 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-import static com.ceiba.dominio.ValidadorArgumento.*;
+import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
+import static com.ceiba.dominio.ValidadorArgumento.validarValorMinimoValorMaximo;
 
 @Getter
 public class PagosAdministracion {

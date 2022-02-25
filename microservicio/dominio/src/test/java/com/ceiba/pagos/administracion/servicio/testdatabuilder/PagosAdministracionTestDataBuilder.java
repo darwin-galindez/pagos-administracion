@@ -2,7 +2,6 @@ package com.ceiba.pagos.administracion.servicio.testdatabuilder;
 
 import com.ceiba.pagos.administracion.modelo.entidad.PagosAdministracion;
 
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 public class PagosAdministracionTestDataBuilder {
@@ -18,7 +17,7 @@ public class PagosAdministracionTestDataBuilder {
 
     public PagosAdministracionTestDataBuilder() {
         codigoInmueble = "AQ17";
-        numeroIdentificacionPersona = 1324549876;
+        numeroIdentificacionPersona = 123456;
         valorPagado = 300000;
         porcentajeInteres = 0;
         valorPagadoInteres = 0;

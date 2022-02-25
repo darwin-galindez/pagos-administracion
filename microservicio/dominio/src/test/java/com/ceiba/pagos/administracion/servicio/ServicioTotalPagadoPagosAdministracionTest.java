@@ -1,10 +1,10 @@
-package com.ceiba.pagos.administracion.servicio.testdatabuilder;
+package com.ceiba.pagos.administracion.servicio;
 
 import com.ceiba.pagos.administracion.modelo.dto.DtoConsultarSaldoPagosAdministracion;
 import com.ceiba.pagos.administracion.modelo.dto.DtoSaldoPagosAdministracion;
 import com.ceiba.pagos.administracion.modelo.dto.DtoTotalPagadoPagosAdministracion;
 import com.ceiba.pagos.administracion.puerto.repositorio.RepositorioPagosAdministracion;
-import com.ceiba.pagos.administracion.servicio.ServicioTotalPagadoPagosAdministracion;
+import com.ceiba.pagos.administracion.servicio.testdatabuilder.ConsultarEstadoPagosAdministracionTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

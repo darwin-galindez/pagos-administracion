@@ -1,16 +1,15 @@
 package com.ceiba.pagos.administracion.servicio;
 
+import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.pagos.administracion.modelo.dto.DtoConsultarSaldoPagosAdministracion;
 import com.ceiba.pagos.administracion.modelo.dto.DtoTotalPagadoPagosAdministracion;
 import com.ceiba.pagos.administracion.modelo.entidad.PagosAdministracion;
 import com.ceiba.pagos.administracion.puerto.repositorio.RepositorioPagosAdministracion;
 
-import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
-
 public class ServicioCrearPagosAdministracion {
 
     private static final Integer VALOR_ADMINISTRACION = 300000;
-    private static final String NO_PUEDE_EXCEDER_VALOR_MAXIMO_MENSUAL = "No puede pagar mas de 300.000 de administración al mes. Su saldo actual es: ";
+    private static final String NO_PUEDE_EXCEDER_VALOR_MAXIMO_MENSUAL = "No puede pagar mas de 300.000 de administración al mes.";
 
     private final RepositorioPagosAdministracion repositorioPagosAdministracion;
 
@@ -23,19 +22,17 @@ public class ServicioCrearPagosAdministracion {
         return this.repositorioPagosAdministracion.crear(pagosAdministracion);
     }
 
-    public void validarPagoMaximoPorMes(PagosAdministracion pagosAdministracion) {
+    private void validarPagoMaximoPorMes(PagosAdministracion pagosAdministracion) {
 
         int mes = pagosAdministracion.getFechaCreacion().getMonthValue();
-        int saldo = VALOR_ADMINISTRACION;
-
         DtoTotalPagadoPagosAdministracion totalPagadoPagosAdministracion = consultarTotalPagado(pagosAdministracion, mes);
 
-        if (totalPagadoPagosAdministracion != null) {
-            saldo = VALOR_ADMINISTRACION - totalPagadoPagosAdministracion.getTotalPagado();
-        }
-
+        int saldo = VALOR_ADMINISTRACION - totalPagadoPagosAdministracion.getTotalPagado();
         boolean valorValido = pagosAdministracion.getValorPagado() <= saldo;
-        validarPositivo(valorValido, NO_PUEDE_EXCEDER_VALOR_MAXIMO_MENSUAL + saldo);
+
+        if (Boolean.FALSE.equals(valorValido)) {
+            throw new ExcepcionValorInvalido(NO_PUEDE_EXCEDER_VALOR_MAXIMO_MENSUAL);
+        }
     }
 
     public DtoTotalPagadoPagosAdministracion consultarTotalPagado(PagosAdministracion pagosAdministracion ,Integer mes) {
@@ -46,6 +43,6 @@ public class ServicioCrearPagosAdministracion {
             return this.repositorioPagosAdministracion.consultarTotalPagado(dtoConsultarSaldoPagosAdministracion);
         }
 
-        return null;
+        return new DtoTotalPagadoPagosAdministracion(pagosAdministracion.getCodigoInmueble(), 0);
     }
 }
